@@ -1,0 +1,55 @@
+
+body{
+    background-color: #ffffff;
+        opacity: 1;
+        background-image: linear-gradient(#f6f6f6 1.8px, transparent 1.8px), linear-gradient(to right, #f6f6f6 1.8px, #ffffff 1.8px);
+        background-size: 36px 36px;
+}
+
+.quescolor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(228, 51, 51);
+    width: 1200px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50px;
+    box-shadow: 0 0 15px #00000050;
+}
+
+.colorrgb{
+    color: #fff;
+    background: #00000050;
+    padding:5px 20px;
+    width: 200px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 1000px;
+    margin:50px auto;
+}
+.container > div{
+    display: flex;
+    align-items: center;
+}
+.ans{
+    width: 200px;
+    height: 100px;
+    box-shadow: 0 0 15px #00000020;
+    border-radius: 22px;
+    margin: 20px;
+    background: rgb(136, 202, 247);
+    cursor: pointer;
+}
+
+.ans:hover{
+    box-shadow: 0 0 15px #00000050;
+}
