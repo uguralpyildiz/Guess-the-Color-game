@@ -19,10 +19,29 @@ body{
     box-shadow: 0 0 15px #00000050;
 }
 
+.quescolors{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    background-color: rgb(43, 43, 43);
+    width: 1100px;
+    margin: auto;
+    border-radius:0 0 50px 50px;
+    padding: 15px;
+}
+
 .colorrgb{
     color: #fff;
     background: #00000050;
     padding:5px 20px;
+    width: 200px;
+    text-align: center;
+    font-size: 22px;
+}
+.colorrgbs {
+    color: #fff;
+    padding: 5px 20px;
     width: 200px;
     text-align: center;
     font-size: 22px;
@@ -48,6 +67,7 @@ body{
     margin: 20px;
     background: rgb(136, 202, 247);
     cursor: pointer;
+    transition: .3s ease;
 }
 
 .ans:hover{
