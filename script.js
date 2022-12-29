@@ -9,7 +9,8 @@ var correctScore = 0;
 var falseScore = 0;
 var answer;
 const score = document.querySelectorAll(".text")
-
+normal.style.pointerEvents = "none"
+hard.style.pointerEvents = "auto"
 
 function index() {
     function randomColor() {
@@ -19,26 +20,73 @@ function index() {
         var randomColor = `rgb(${r}, ${g}, ${b})`
         return randomColor;
     }
-    var correctAnswer = quest.innerHTML = randomColor();
-    for (let i = 0; i < answers.length; i++) {
-        answers[i].style.backgroundColor = randomColor();
-    }
-    var shuffle = Math.floor(Math.random() * answers.length)
-    answers[shuffle].style.backgroundColor = correctAnswer;
+    //hard mode
+
+
+    const harD = document.createElement("div")
+    harD.classList = "harder-mode"
+    harD.innerHTML = `     
+            <div class="ans">
+            
+            </div>
+            <div class="ans">
+            
+            </div>
+            <div class="ans">
+            
+            </div>
+    `;
+    hard.addEventListener("click", ()=>{
+        hard.style.pointerEvents = "none"
+        normal.style.pointerEvents = "auto"
+        normal.classList.remove("active")
+        hard.classList.add("active")
+        function hardmod() {
+            container.appendChild(harD)
+            randomer()     
+        }
+        hardmod()
+    })
+
+    function randomer() {
+        const answers = document.querySelectorAll(".ans")
+        var correctAnswer = quest.innerHTML = randomColor();
+        for (let i = 0; i < answers.length; i++) {
+            answers[i].style.backgroundColor = randomColor();
+        }
+        var shuffle = Math.floor(Math.random() * answers.length)
+        answers[shuffle].style.backgroundColor = correctAnswer;
+
+        for (let i = 0; i < answers.length; i++) {
+            answers[i].addEventListener("click", () => {
+                if (answers[i].style.backgroundColor === correctAnswer) {
+                    answer = true;
+                } else {
+                    answer = false;
+                }
+                setTimeout(() => {
+                    answer = undefined;
+                }, 50);
+            })
+        }  
+    }  
+
+    randomer()
+
+    normal.addEventListener("click", () => {
+        container.removeChild(harD)
+        hard.style.pointerEvents = "auto"
+        normal.style.pointerEvents = "none"
+        normal.classList.add("active")
+        hard.classList.remove("active")
+        randomer()   
+    })
+
     
-    for (let i = 0; i < answers.length; i++) {
-        answers[i].addEventListener("click", () => {         
-            if (answers[i].style.backgroundColor === correctAnswer) {
-               answer = true;
-            } else {
-               answer = false;
-            }       
-            setTimeout(() => {
-                answer = undefined;
-            }, 50);
-        })
-    }        
 }
+
+
+
 
 window.addEventListener("click", () => {    
     if (answer === true) {
@@ -70,33 +118,6 @@ window.addEventListener("click", () => {
 
 
 
-    const harD = document.createElement("div")
-    harD.classList = "harder-mode"
-    harD.innerHTML = `     
-            <div class="ans">
-            
-            </div>
-            <div class="ans">
-            
-            </div>
-            <div class="ans">
-            
-            </div>
-    `;
-    container.appendChild(harD)
-    const harderMode = document.querySelector(".harder-mode")
-    harderMode.style.display = "none"; 
-    normal.addEventListener("click", () => {
-        hard.classList.remove("active")
-        normal.classList.add("active")
-        harderMode.style.display = "none";
-    })
-
-    hard.addEventListener("click", () => {
-        normal.classList.remove("active")
-        hard.classList.add("active")
-        harderMode.style.display = "flex";
-    })
 
 
 index()

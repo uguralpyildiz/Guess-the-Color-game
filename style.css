@@ -129,7 +129,9 @@ body{
 animation: wrong .1s ease 4;
 background-color: rgb(228, 51, 51);
 }
-
+.harder-mode {
+    display: flex;
+}
 @keyframes wrong {
     0%{
     
@@ -164,6 +166,3 @@ background-color: rgb(228, 51, 51);
 
 }
 
-.harder-mode {
-    display: flex;
-}
