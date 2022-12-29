@@ -11,7 +11,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(228, 51, 51);
+    background-color: rgb(134, 51, 228);
     width: 1200px;
     height: 70px;
     margin: auto;
@@ -29,6 +29,7 @@ body{
     margin: auto;
     border-radius:0 0 50px 50px;
     padding: 15px;
+    box-shadow: 0 0 15px #00000050;
 }
 
 .colorrgb{
@@ -42,7 +43,7 @@ body{
 .colorrgbs {
     color: #fff;
     padding: 5px 20px;
-    width: 200px;
+    width: 300px;
     text-align: center;
     font-size: 22px;
 }
@@ -55,15 +56,15 @@ body{
     width: 1000px;
     margin:50px auto;
 }
-.container > div{
+.normal-mode{
     display: flex;
     align-items: center;
 }
 .ans{
-    width: 200px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
     box-shadow: 0 0 15px #00000020;
-    border-radius: 22px;
+    border-radius:25px;
     margin: 20px;
     background: rgb(136, 202, 247);
     cursor: pointer;
@@ -71,5 +72,98 @@ body{
 }
 
 .ans:hover{
-    box-shadow: 0 0 15px #00000050;
+   transform: scale(1.05);
+}
+
+.quest{
+    font-size: 32px;
+}
+
+.overlay{
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+
+.inner{
+    position: relative;
+    margin: 150px;
+    font-size: 64px;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #00000080;
+    
+}
+
+.mode{
+    padding: 10px 25px;
+    background-color: rgb(134, 51, 228);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    margin: 15px;
+    color: #fff;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.mode:hover{
+    transform: scale(1.07);
+}
+
+.active{
+    opacity: .5;
+}
+.active:hover {
+    transform: scale(1);
+}
+
+.wrong{
+animation: wrong .1s ease 4;
+background-color: rgb(228, 51, 51);
+}
+
+@keyframes wrong {
+    0%{
+    
+        left: 5px;
+    }
+        33% {
+       
+            left: -5px;
+        }
+
+        99%{
+            left: 5px;
+        }
+}
+
+
+.true {
+    animation: true .4s ease;
+    background-color: rgb(73, 142, 34);
+}
+
+@keyframes true {
+    0% {
+
+        top: -155px;
+    }
+
+    100% {
+
+        top: 0px;
+    }
+
+}
+
+.harder-mode {
+    display: flex;
 }
