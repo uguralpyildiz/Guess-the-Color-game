@@ -82,39 +82,39 @@ function index() {
         randomer()   
     })
 
-    
+    window.addEventListener("click", () => {
+        if (answer === true) {
+            inner.classList.remove("wrong")
+            inner.classList.add("true")
+            overlay.style.display = "flex";
+            inner.innerHTML = "CORRECT ANSWER";
+            correctScore++;
+            setTimeout(() => {
+                overlay.style.display = "none";
+                randomer()
+            }, 1000);
+        }
+        if (answer === false) {
+            inner.classList.remove("true")
+            inner.classList.add("wrong")
+            overlay.style.display = "flex";
+            inner.innerHTML = "WRONG ANSWER";
+            falseScore++;
+            setTimeout(() => {
+                overlay.style.display = "none";
+                randomer()
+            }, 1000);
+        }
+
+        score[0].innerHTML = "Correct: " + correctScore;
+        score[1].innerHTML = "False: " + falseScore;
+    })
 }
 
 
 
 
-window.addEventListener("click", () => {    
-    if (answer === true) {
-        inner.classList.remove("wrong")
-        inner.classList.add("true")
-        overlay.style.display = "flex";
-        inner.innerHTML = "CORRECT ANSWER";
-        correctScore++;
-        setTimeout(() => {
-            overlay.style.display = "none";
-            index()
-        }, 1000);
-    }
-    if (answer === false) {    
-        inner.classList.remove("true")
-        inner.classList.add("wrong")
-        overlay.style.display = "flex";
-        inner.innerHTML = "WRONG ANSWER";
-        falseScore++;
-        setTimeout(() => {
-            overlay.style.display = "none";
-            index()        
-        }, 1000);
-    }
-    
-    score[0].innerHTML = "Correct: " + correctScore;
-    score[1].innerHTML = "False: " + falseScore;
-})
+
 
 
 
