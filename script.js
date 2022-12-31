@@ -1,6 +1,8 @@
 const quest = document.querySelector(".quest")
 const answers = document.querySelectorAll(".ans")
 const overlay = document.querySelector(".overlay")
+const log = document.querySelector(".log")
+const box = document.querySelector(".box")
 const inner = document.querySelector(".inner")
 const normal = document.querySelector(".normal")
 const hard = document.querySelector(".hard")
@@ -56,13 +58,13 @@ function index() {
         }
         var shuffle = Math.floor(Math.random() * answers.length)
         answers[shuffle].style.backgroundColor = correctAnswer;
-
         for (let i = 0; i < answers.length; i++) {
             answers[i].addEventListener("click", () => {
                 if (answers[i].style.backgroundColor === correctAnswer) {
                     answer = true;
                 } else {
                     answer = false;
+                    box.style.backgroundColor = correctAnswer;
                 }
                 setTimeout(() => {
                     answer = undefined;
@@ -87,7 +89,8 @@ function index() {
             inner.classList.remove("wrong")
             inner.classList.add("true")
             overlay.style.display = "flex";
-            inner.innerHTML = "CORRECT ANSWER";
+            box.style.display = "none";
+            log.innerHTML = "CORRECT ANSWER";
             correctScore++;
             setTimeout(() => {
                 overlay.style.display = "none";
@@ -97,13 +100,15 @@ function index() {
         if (answer === false) {
             inner.classList.remove("true")
             inner.classList.add("wrong")
+            box.style.display = "flex";
+           
             overlay.style.display = "flex";
-            inner.innerHTML = "WRONG ANSWER";
+            log.innerHTML = "WRONG ANSWER";
             falseScore++;
             setTimeout(() => {
                 overlay.style.display = "none";
                 randomer()
-            }, 1000);
+            }, 2000);
         }
 
         score[0].innerHTML = "Correct: " + correctScore;
